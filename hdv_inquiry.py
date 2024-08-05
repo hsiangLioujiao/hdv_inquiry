@@ -48,7 +48,7 @@ st.divider()
 
 
 # 查詢總重範圍車款
-st.subheader("依總重查詢上述車輛資料：")
+st.subheader(f"依總重查詢日本2023年度{brand}{vehicleType}新車資料：")
 with st.form("my_form"):
     col1, col2 = st.columns(2)
     gvw_d = col1.number_input("總重下限(不含)", value=3.5)
@@ -58,7 +58,7 @@ with st.form("my_form"):
     if submitted:
         df_s = df[(df["廠牌"]==brand) & (df["車輛種類"]==vehicleType) & (df["總重[噸]"]>gvw_d) & (df["總重[噸]"]<=gvw_u)]
         st.dataframe(df_s)
-        st.write(f"有{len(df_s)}款車，平均能效{df_s['能效[km/L]'].mean():.2f}km/L")
+        st.write(f"有{len(df_s)}款車，平均能效{df_s['能效[km/L]'].mean():.2f} km/L")
 
 st.divider()
 
