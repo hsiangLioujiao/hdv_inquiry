@@ -16,6 +16,13 @@ fm.fontManager.addfont('TaipeiSansTCBeta-Regular.ttf')
 plt.rcParams["font.size"] = 14
 plt.rcParams['font.family'] = 'Taipei Sans TC Beta'
 
+st.set_page_config(
+    page_title="功能打樣版 僅供3人同時使用",
+    page_icon="random",
+)
+
+
+
 
 # 讀取資料檔案
 df = pd.read_csv("japan_2023.csv")
