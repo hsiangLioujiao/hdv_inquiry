@@ -62,5 +62,5 @@ with st.form("my_form"):
 
 st.divider()
 
-st.write("資料來源:日本國土交通省新車能效認證資料。")
-
+st.write("資料來源:日本國土交通省 新車能效認證資料。")
+st.write("https://www.mlit.go.jp/jidosha/jidosha_fr10_000056.html")
