@@ -39,13 +39,17 @@ kind_x = st.radio(
 
 
 # 繪圖
-fig = sns.relplot(data=df[(df["廠牌"]== brand) & (df["車輛種類"]== vehicleType)], x=kind_x, y="能效[km/L]", hue="排氣量[L]", style="排氣量[L]")
+hue_order = sorted(list(df[df["廠牌"]== brand]["排氣量[L]"].unique()))
+hue_order = [str(i) for i in hue_order]
+df.loc[:,'排氣量[L]'] = df['排氣量[L]'].astype('str')
+fig = sns.relplot(data=df[(df["廠牌"]== brand) & (df["車輛種類"]== vehicleType)], x=kind_x, y="能效[km/L]", hue="排氣量[L]", style="排氣量[L]", hue_order=hue_order)
 plt.title(f"日本2023年度{brand}{vehicleType}新車能效")
 plt.ylabel("能效[km/L]")
 plt.xlabel(kind_x)
 plt.xlim([0,60])
 plt.ylim([0,15])
 plt.show()
+df.loc[:,'排氣量[L]'] = df['排氣量[L]'].astype('float')
 
 
 # streamlit繪圖
