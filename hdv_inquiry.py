@@ -40,7 +40,7 @@ kind_x = st.radio(
 
 
 # 繪圖
-hue_order = sorted(list(df[df["廠牌"]== brand]["總排氣量[L]"].unique()))
+hue_order = sorted(list(df[(df["廠牌"]== brand) & (df["車輛種類"]== vehicleType)]["總排氣量[L]"].unique()))
 hue_order = [str(i) for i in hue_order]
 df.loc[:,'總排氣量[L]'] = df['總排氣量[L]'].astype('str')
 fig = sns.relplot(data=df[(df["廠牌"]== brand) & (df["車輛種類"]== vehicleType)], x=kind_x, y="能效[km/L]", hue="總排氣量[L]", style="總排氣量[L]", hue_order=hue_order)
